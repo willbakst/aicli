@@ -12,7 +12,7 @@ import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Annotated, Any, Optional, Type, cast
+from typing import Annotated, Any, Optional, cast
 
 from mirascope import OpenAIChat, Prompt, messages
 from openai import OpenAIError
@@ -236,7 +236,7 @@ class DesiredFieldInfos(BaseModel):
         description="The desired types for the fields e.g. <class str>.",
     )
     descriptions: list[str] = Field(
-        ..., descipriont="The descriptions for the desired fields."
+        ..., description="The descriptions for the desired fields."
     )
 
 
@@ -298,7 +298,10 @@ def extract(
                 DesiredFieldInfos, GenerateModelPrompt(query=query)
             )
             field_definitions: dict[str, Any] = {
-                field_name: (t, FieldInfo(annotation=t, description=description))
+                field_name: (
+                    t,
+                    FieldInfo(annotation=cast(Any, t), description=description),
+                )
                 for field_name, t, description in zip(
                     desired_info.field_names,
                     desired_info.types,
