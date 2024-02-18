@@ -184,6 +184,7 @@ def _interactive_mode(chat: OpenAIChat, stream: bool, console: Console):
             continue
 
         context.append(("user", text))
+        console.print("\nResponse:", style="green")
         try:
             if stream:
                 _stream(chat, text, context, console)
