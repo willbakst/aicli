@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wb-aicli"
-version = "0.1.0"
+version = "0.1.1"
 description = "A copy-cat version of Samuel Colvin's aicli implemented with Mirascope and Typer"
 license = "MIT"
 authors = ["William Bakst <william@mirascope.io>"]
