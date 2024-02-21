@@ -9,6 +9,12 @@ pip install wb-aicli
 
 ## Usage
 
+### Options
+
+- **model**: The model to use (e.g. "gpt-3.5-turbo")
+- **base_url**: The base URL for the API. This is useful for hitting local Ollama endpoints as well as Anyscale and Together endpoints.
+- **stream**: Whether to stream the response or not.
+
 ### Single-Query Chat
 
 This will make a single call to the LLM:
